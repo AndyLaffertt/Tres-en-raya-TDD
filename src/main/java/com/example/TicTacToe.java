@@ -36,8 +36,6 @@ public class TicTacToe {
     /**
      * Indica si es el fin de la partida, acaba cuando hay un ganador o el
      * tablero esta lleno
-     *
-     * @return fin de partida
      */
     public boolean finPartida() {
 
@@ -54,8 +52,6 @@ public class TicTacToe {
     /**
      * Indica si el tablero esta llena cuando el simbolo por defecto aparezca,
      * no esta llena
-     *
-     * @return talero vacio o no
      */
     public boolean tableroLleno() {
         for (int i = 0; i < tablero.length; i++) {
@@ -70,8 +66,6 @@ public class TicTacToe {
 
     /**
      * Indica si hay un ganador en una linea
-     *
-     * @return Simbolo del ganador, VACIO sino hay ganador
      */
     private char coincidenciaLinea() {
 
@@ -108,8 +102,6 @@ public class TicTacToe {
 
     /**
      * Indica si hay un ganador en una columna
-     *
-     * @return Simbolo del ganador, VACIO sino hay ganador
      */
     private char coincidenciaColumna() {
 
@@ -146,8 +138,6 @@ public class TicTacToe {
 
     /**
      * Comprueba las diagonales
-     *
-     * @return Simbolo del ganador, VACIO sino hay ganador
      */
     private char coincidenciaDiagonal() {
 
@@ -235,9 +225,6 @@ public class TicTacToe {
 
     /**
      * Funcion auxiliar de la anterior funcion
-     *
-     * @param simbolo
-     * @param tipo
      */
     private void ganador(char simbolo, int tipo) {
 
@@ -270,9 +257,6 @@ public class TicTacToe {
 
     /**
      * Insertamos en una posicion de una matriz un simbolo en concreto
-     *
-     * @param fila
-     * @param columna
      */
     public void insertarEn(int fila, int columna) {
         if (turno) {
@@ -319,10 +303,6 @@ public class TicTacToe {
 
     /**
      * Validamos la posicion que nos insertan
-     *
-     * @param fila
-     * @param columna
-     * @return
      */
     public boolean validarPosicion(int fila, int columna) {
 
@@ -335,10 +315,6 @@ public class TicTacToe {
 
     /**
      * Indicamos si en una posicion hay una marca
-     *
-     * @param fila
-     * @param columna
-     * @return
      */
     public boolean hayValorPosicion(int fila, int columna) {
         if (this.tablero[fila][columna] != VACIO) {
