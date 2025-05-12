@@ -1,0 +1,13 @@
+# Maven
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# VS Code
+.vscode/
+
+# Java
+*.class
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
