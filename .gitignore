@@ -1,13 +1,28 @@
 # Maven
 /target/
 !.mvn/wrapper/maven-wrapper.jar
-
-# VS Code
-.vscode/
+.mvn/timing.properties
 
 # Java
 *.class
+*.log
+*.jar
+*.war
+*.ear
 
-# Sistema operativo
+# IDEs
+.vscode/
+.idea/
+*.iml
+.project
+.classpath
+.settings/
+
+# OS
 .DS_Store
 Thumbs.db
+
+# Logs, backups
+*.tmp
+*.bak
+*.swp
