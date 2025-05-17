@@ -256,15 +256,23 @@ public class TicTacToe {
     }
 
     /**
-     * Insertamos en una posicion de una matriz un simbolo en concreto
+     * Insertamos en una posicion de una matriz
      */
     public void insertarEn(int fila, int columna) {
-        if (turno) {
-            this.tablero[fila][columna] = J1;
-        } else {
-            this.tablero[fila][columna] = J2;
-        }
+    if (!validarPosicion(fila, columna)) {
+        throw new IllegalArgumentException("Posición fuera del tablero");
     }
+    if (hayValorPosicion(fila, columna)) {
+        throw new IllegalStateException("La posición ya está ocupada");
+    }
+
+    if (turno) {
+        this.tablero[fila][columna] = J1;
+    } else {
+        this.tablero[fila][columna] = J2;
+    }
+}
+
 
     /**
      * Muestra la matriz

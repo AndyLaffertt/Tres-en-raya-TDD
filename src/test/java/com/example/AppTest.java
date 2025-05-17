@@ -1,20 +1,25 @@
 package com.example;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.Test;
+import static org.junit.Assert.*;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest 
-{
-    /**
-     * Rigorous Test :-)
-     */
+public class AppTest {
+
     @Test
-    public void shouldAnswerWithTrue()
-    {
-        assertTrue( true );
+    public void testPiezaFueraDelEjeX_lanzaExcepcion() {
+        TicTacToe juego = new TicTacToe();
+        try {
+            juego.insertarEn(-1, 1);
+            fail("Se esperaba IllegalArgumentException");
+        } catch (IllegalArgumentException e) {
+            // OK
+        }
+
+        try {
+            juego.insertarEn(3, 1);
+            fail("Se esperaba IllegalArgumentException");
+        } catch (IllegalArgumentException e) {
+            // OK
+        }
     }
 }
