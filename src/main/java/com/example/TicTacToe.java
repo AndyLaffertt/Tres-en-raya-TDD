@@ -266,13 +266,8 @@ public class TicTacToe {
             throw new IllegalStateException("La posición ya está ocupada");
         }
 
-        if (turno) {
-            this.tablero[fila][columna] = J1;
-            turno = false;
-        } else {
-            this.tablero[fila][columna] = J2;
-            turno = true;
-        }
+        tablero[fila][columna] = obtenerTurnoActual();
+        cambiaTurno();
     }
 
     /**
