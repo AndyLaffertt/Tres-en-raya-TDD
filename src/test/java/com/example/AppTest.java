@@ -1,9 +1,11 @@
 package com.example;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 public class AppTest {
+
 
     @Test
     public void testPiezaFueraDelEjeX_lanzaExcepcion() {
@@ -22,6 +24,9 @@ public class AppTest {
             System.out.println("Excepción capturada correctamente fila 3");
         }
     }
+    
+
+
     @Test
 public void testPiezaFueraDelEjeY_lanzaExcepcion() {
     TicTacToe juego = new TicTacToe();
@@ -51,5 +56,94 @@ public void testPiezaEnLugarOcupado_lanzaExcepcion() {
         System.out.println("Excepción capturada correctamente para posición ocupada");
     }
 }
+
+
+
+//requerimiento 3
+
+@Test
+public void testNoHayGanadorCuandoNoSeCumpleCondicion() {
+    TicTacToe juego = new TicTacToe();
+
+    juego.insertarEn(0, 0); 
+    juego.cambiaTurno();
+    juego.insertarEn(1, 1); 
+    juego.cambiaTurno();
+    juego.insertarEn(2, 0); 
+    juego.cambiaTurno();
+    juego.insertarEn(0, 2);
+
+    char ganadorLinea = juego.coincidenciaLinea();
+    char ganadorColumna = juego.coincidenciaColumna();
+    char ganadorDiagonal = juego.coincidenciaDiagonal();
+
+    assertEquals('-', ganadorLinea);
+    assertEquals('-', ganadorColumna);
+    assertEquals('-', ganadorDiagonal);
+}
+
+@Test
+public void testGanaJugadorConLineaHorizontal() {
+    TicTacToe juego = new TicTacToe();
+
+    juego.insertarEn(0, 0); 
+    juego.cambiaTurno();
+    juego.insertarEn(1, 0); 
+    juego.cambiaTurno();
+    juego.insertarEn(0, 1); 
+    juego.cambiaTurno();
+    juego.insertarEn(1, 1); 
+    juego.cambiaTurno();
+    juego.insertarEn(0, 2); 
+
+    assertEquals('X', juego.coincidenciaLinea());
+}
+
+@Test
+public void testGanaJugadorConLineaVertical() {
+    TicTacToe juego = new TicTacToe();
+
+    juego.insertarEn(0, 1); 
+    juego.cambiaTurno();
+    juego.insertarEn(0, 0); 
+    juego.cambiaTurno();
+    juego.insertarEn(1, 2); 
+    juego.cambiaTurno();
+    juego.insertarEn(1, 0); 
+    juego.cambiaTurno();
+    juego.insertarEn(2, 2); 
+    juego.cambiaTurno();
+    juego.insertarEn(2, 0); 
+
+    assertEquals('O', juego.coincidenciaColumna());
+}
+
+@Test
+public void testGanaJugadorConLineaDiagonal() {
+    TicTacToe juego = new TicTacToe();
+
+    juego.insertarEn(0, 0); 
+    juego.cambiaTurno();
+    juego.insertarEn(0, 1);
+    juego.cambiaTurno();
+    juego.insertarEn(1, 1); 
+    juego.cambiaTurno();
+    juego.insertarEn(0, 2); 
+    juego.cambiaTurno();
+    juego.insertarEn(2, 2); 
+
+    assertEquals('X', juego.coincidenciaDiagonal());
+
+}
+
+
+
+
+
+
+
+
+
+
 
 }

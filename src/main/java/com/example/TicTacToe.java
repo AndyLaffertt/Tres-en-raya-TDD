@@ -67,7 +67,7 @@ public class TicTacToe {
     /**
      * Indica si hay un ganador en una linea
      */
-    private char coincidenciaLinea() {
+    public char coincidenciaLinea() {
 
         char simbolo;
         boolean coincidencia;
@@ -103,7 +103,7 @@ public class TicTacToe {
     /**
      * Indica si hay un ganador en una columna
      */
-    private char coincidenciaColumna() {
+    public char coincidenciaColumna() {
 
         char simbolo;
         boolean coincidencia;
@@ -139,7 +139,7 @@ public class TicTacToe {
     /**
      * Comprueba las diagonales
      */
-    private char coincidenciaDiagonal() {
+    public char coincidenciaDiagonal() {
 
         char simbolo;
         boolean coincidencia = true;
