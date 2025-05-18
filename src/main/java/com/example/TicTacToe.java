@@ -2,16 +2,16 @@ package com.example;
 
 public class TicTacToe {
 
-    //Reprentaciones de los jugadores y del simbolo vacio
+    // Reprentaciones de los jugadores y del simbolo vacio
     private final char J1 = 'X';
     private final char J2 = 'O';
     private final char VACIO = '-';
 
-    //turno actual
-    //true = J1, false = J2
+    // turno actual
+    // true = J1, false = J2
     private boolean turno;
 
-    //tablero donde vamos a jugar
+    // tablero donde vamos a jugar
     private char tablero[][];
 
     public TicTacToe() {
@@ -74,19 +74,19 @@ public class TicTacToe {
 
         for (int i = 0; i < tablero.length; i++) {
 
-            //Reiniciamos la coincidencia
+            // Reiniciamos la coincidencia
             coincidencia = true;
-            //Cogemos el simbolo de la fila
+            // Cogemos el simbolo de la fila
             simbolo = tablero[i][0];
             if (simbolo != VACIO) {
                 for (int j = 1; j < tablero[0].length; j++) {
-                    //sino coincide ya no habra ganadro en esta fila
+                    // sino coincide ya no habra ganadro en esta fila
                     if (simbolo != tablero[i][j]) {
                         coincidencia = false;
                     }
                 }
 
-                //Si no se mete en el if, devuelvo el simbolo ganador
+                // Si no se mete en el if, devuelvo el simbolo ganador
                 if (coincidencia) {
                     return simbolo;
                 }
@@ -95,7 +95,7 @@ public class TicTacToe {
 
         }
 
-        //Si no hay ganador, devuelvo el simbolo por defecto
+        // Si no hay ganador, devuelvo el simbolo por defecto
         return VACIO;
 
     }
@@ -110,19 +110,19 @@ public class TicTacToe {
 
         for (int j = 0; j < tablero.length; j++) {
 
-            //Reiniciamos la coincidencia
+            // Reiniciamos la coincidencia
             coincidencia = true;
-            //Cogemos el simbolo de la columna
+            // Cogemos el simbolo de la columna
             simbolo = tablero[0][j];
             if (simbolo != VACIO) {
                 for (int i = 1; i < tablero[0].length; i++) {
-                    //sino coincide ya no habra ganadro en esta fila
+                    // sino coincide ya no habra ganadro en esta fila
                     if (simbolo != tablero[i][j]) {
                         coincidencia = false;
                     }
                 }
 
-                //Si no se mete en el if, devuelvo el simbolo ganador
+                // Si no se mete en el if, devuelvo el simbolo ganador
                 if (coincidencia) {
                     return simbolo;
                 }
@@ -131,7 +131,7 @@ public class TicTacToe {
 
         }
 
-        //Si no hay ganador, devuelvo el simbolo por defecto
+        // Si no hay ganador, devuelvo el simbolo por defecto
         return VACIO;
 
     }
@@ -144,17 +144,17 @@ public class TicTacToe {
         char simbolo;
         boolean coincidencia = true;
 
-        //Diagonal principal
+        // Diagonal principal
         simbolo = tablero[0][0];
         if (simbolo != VACIO) {
             for (int i = 1; i < tablero.length; i++) {
-                //sino coincide ya no habra ganadro en esta fila
+                // sino coincide ya no habra ganadro en esta fila
                 if (simbolo != tablero[i][i]) {
                     coincidencia = false;
                 }
             }
 
-            //Si no se mete en el if, devuelvo el simbolo ganador
+            // Si no se mete en el if, devuelvo el simbolo ganador
             if (coincidencia) {
                 return simbolo;
             }
@@ -163,23 +163,23 @@ public class TicTacToe {
 
         coincidencia = true;
 
-        //Diagonal inversa
+        // Diagonal inversa
         simbolo = tablero[0][2];
         if (simbolo != VACIO) {
             for (int i = 1, j = 1; i < tablero.length; i++, j--) {
-                //sino coincide ya no habra ganadro en esta fila
+                // sino coincide ya no habra ganadro en esta fila
                 if (simbolo != tablero[i][j]) {
                     coincidencia = false;
                 }
             }
 
-            //Si no se mete en el if, devuelvo el simbolo ganador
+            // Si no se mete en el if, devuelvo el simbolo ganador
             if (coincidencia) {
                 return simbolo;
             }
         }
 
-        //Si no hay ganador, devuelvo el simbolo por defecto
+        // Si no hay ganador, devuelvo el simbolo por defecto
         return VACIO;
 
     }
@@ -259,20 +259,16 @@ public class TicTacToe {
      * Insertamos en una posicion de una matriz
      */
     public void insertarEn(int fila, int columna) {
-    if (!validarPosicion(fila, columna)) {
-        throw new IllegalArgumentException("Posición fuera del tablero");
-    }
-    if (hayValorPosicion(fila, columna)) {
-        throw new IllegalStateException("La posición ya está ocupada");
-    }
+        if (!validarPosicion(fila, columna)) {
+            throw new IllegalArgumentException("Posición fuera del tablero");
+        }
+        if (hayValorPosicion(fila, columna)) {
+            throw new IllegalStateException("La posición ya está ocupada");
+        }
 
-    if (turno) {
-        this.tablero[fila][columna] = J1;
-    } else {
-        this.tablero[fila][columna] = J2;
+        tablero[fila][columna] = obtenerTurnoActual();
+        cambiaTurno();
     }
-}
-
 
     /**
      * Muestra la matriz
@@ -330,6 +326,46 @@ public class TicTacToe {
         }
 
         return false;
+    }
+
+    /** Devuelve el símbolo del jugador cuyo turno es ahora */
+    public char obtenerTurnoActual() {
+        return turno ? J1 : J2;
+    }
+
+    // SOLUCION PROPUESTA CON IA
+    /**
+     * Determina el turno actual calculándolo desde el estado del tablero.
+     * - Si el tablero está vacío, devuelve 'X' (primer turno).
+     * - Si hay más X que O, toca 'O'; si están igual, toca 'X'.
+     */
+    public char obtenerTurnoPorConteo() {
+        int xCount = 0, oCount = 0;
+        for (char[] fila : tablero) {
+            for (char celda : fila) {
+                if (celda == J1)
+                    xCount++;
+                else if (celda == J2)
+                    oCount++;
+            }
+        }
+        // Primer turno (vacío): X. Luego alterna según conteo.
+        return (xCount == oCount) ? J1 : J2;
+    }
+
+    // SOLUCION PROPUESTA CON IA
+    /** Calcula el turno a partir del estado actual del tablero. */
+    public char calcularTurnoPorEstado() {
+        int x = 0, o = 0;
+        for (int i = 0; i < tablero.length; i++) {
+            for (int j = 0; j < tablero[0].length; j++) {
+                if (tablero[i][j] == J1)
+                    x++;
+                else if (tablero[i][j] == J2)
+                    o++;
+            }
+        }
+        return (x == o) ? J1 : J2;
     }
 
 }
