@@ -1,7 +1,8 @@
 package com.example;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 public class AppTest {
 
@@ -114,4 +115,87 @@ public class AppTest {
         // se espera 'X'
         assertEquals("Después del turno de O, debe tocar X", 'X', juego.siguienteTurno());
     }
+
+
+
+    //requerimiento 3
+
+    //se cambio 3 metods de privado a publico
+
+@Test
+public void testNoHayGanadorCuandoNoSeCumpleCondicion() {
+    TicTacToe juego = new TicTacToe();
+
+    juego.insertarEn(0, 0); 
+    juego.cambiaTurno();
+    juego.insertarEn(1, 1); 
+    juego.cambiaTurno();
+    juego.insertarEn(2, 0); 
+    juego.cambiaTurno();
+    juego.insertarEn(0, 2);
+
+    char ganadorLinea = juego.coincidenciaLinea();
+    char ganadorColumna = juego.coincidenciaColumna();
+    char ganadorDiagonal = juego.coincidenciaDiagonal();
+
+    assertEquals('-', ganadorLinea);
+    assertEquals('-', ganadorColumna);
+    assertEquals('-', ganadorDiagonal);
+}
+
+@Test
+public void testGanaJugadorConLineaHorizontal() {
+    TicTacToe juego = new TicTacToe();
+
+    juego.insertarEn(0, 0); 
+    juego.cambiaTurno();
+    juego.insertarEn(1, 0); 
+    juego.cambiaTurno();
+    juego.insertarEn(0, 1); 
+    juego.cambiaTurno();
+    juego.insertarEn(1, 1); 
+    juego.cambiaTurno();
+    juego.insertarEn(0, 2); 
+
+    assertEquals('X', juego.coincidenciaLinea());
+}
+
+@Test
+public void testGanaJugadorConLineaVertical() {
+    TicTacToe juego = new TicTacToe();
+
+    juego.insertarEn(0, 1); 
+    juego.cambiaTurno();
+    juego.insertarEn(0, 0); 
+    juego.cambiaTurno();
+    juego.insertarEn(1, 2); 
+    juego.cambiaTurno();
+    juego.insertarEn(1, 0); 
+    juego.cambiaTurno();
+    juego.insertarEn(2, 2); 
+    juego.cambiaTurno();
+    juego.insertarEn(2, 0); 
+
+    assertEquals('O', juego.coincidenciaColumna());
+}
+
+@Test
+public void testGanaJugadorConLineaDiagonal() {
+    TicTacToe juego = new TicTacToe();
+
+    juego.insertarEn(0, 0); 
+    juego.cambiaTurno();
+    juego.insertarEn(0, 1);
+    juego.cambiaTurno();
+    juego.insertarEn(1, 1); 
+    juego.cambiaTurno();
+    juego.insertarEn(0, 2); 
+    juego.cambiaTurno();
+    juego.insertarEn(2, 2); 
+
+    assertEquals('X', juego.coincidenciaDiagonal());
+
+}
+
+
 }
