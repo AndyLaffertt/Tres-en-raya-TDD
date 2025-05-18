@@ -333,10 +333,7 @@ public class TicTacToe {
 
     /** Devuelve el símbolo del jugador cuyo turno es ahora */
     public char obtenerTurnoActual() {
-        if (turno) {
-            return J1;
-        }
-        return J2;
+        return turno ? J1 : J2;
     }
 
 }
