@@ -334,6 +334,26 @@ public class TicTacToe {
     }
 
     // SOLUCION PROPUESTA CON IA
+    /**
+     * Determina el turno actual calculándolo desde el estado del tablero.
+     * - Si el tablero está vacío, devuelve 'X' (primer turno).
+     * - Si hay más X que O, toca 'O'; si están igual, toca 'X'.
+     */
+    public char obtenerTurnoPorConteo() {
+        int xCount = 0, oCount = 0;
+        for (char[] fila : tablero) {
+            for (char celda : fila) {
+                if (celda == J1)
+                    xCount++;
+                else if (celda == J2)
+                    oCount++;
+            }
+        }
+        // Primer turno (vacío): X. Luego alterna según conteo.
+        return (xCount == oCount) ? J1 : J2;
+    }
+
+    // SOLUCION PROPUESTA CON IA
     /** Calcula el turno a partir del estado actual del tablero. */
     public char calcularTurnoPorEstado() {
         int x = 0, o = 0;

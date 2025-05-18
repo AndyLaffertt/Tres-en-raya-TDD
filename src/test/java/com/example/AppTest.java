@@ -63,6 +63,16 @@ public class AppTest {
         assertEquals('X', juego.obtenerTurnoActual());
     }
 
+    // SOLUCION/TEST PROPUESTA CON IA para el primer turno debe ser jugado por ‘X’
+    @Test
+    public void testObtenerTurnoPorConteo_PrimerTurnoX() {
+        TicTacToe juego = new TicTacToe();
+        assertEquals(
+                "En un tablero recién inicializado debe iniciar X",
+                'X',
+                juego.obtenerTurnoPorConteo());
+    }
+
     /**
      * Si el ultimo turno fue jugado por ‘X', entonces el siguiente turno es para
      * ‘O’
