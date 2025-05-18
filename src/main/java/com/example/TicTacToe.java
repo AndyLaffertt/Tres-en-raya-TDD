@@ -268,8 +268,10 @@ public class TicTacToe {
 
         if (turno) {
             this.tablero[fila][columna] = J1;
+            turno = false;
         } else {
             this.tablero[fila][columna] = J2;
+            turno = true;
         }
     }
 
@@ -335,9 +337,5 @@ public class TicTacToe {
     public char obtenerTurnoActual() {
         return turno ? J1 : J2;
     }
-    /**
-     * Si el ultimo turno fue jugado por ‘X', entonces el siguiente turno es para
-     * ‘O’
-     */
 
 }
