@@ -333,4 +333,19 @@ public class TicTacToe {
         return turno ? J1 : J2;
     }
 
+    // SOLUCION PROPUESTA CON IA
+    /** Calcula el turno a partir del estado actual del tablero. */
+    public char calcularTurnoPorEstado() {
+        int x = 0, o = 0;
+        for (int i = 0; i < tablero.length; i++) {
+            for (int j = 0; j < tablero[0].length; j++) {
+                if (tablero[i][j] == J1)
+                    x++;
+                else if (tablero[i][j] == J2)
+                    o++;
+            }
+        }
+        return (x == o) ? J1 : J2;
+    }
+
 }

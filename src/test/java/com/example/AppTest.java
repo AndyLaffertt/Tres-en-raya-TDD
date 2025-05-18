@@ -74,4 +74,22 @@ public class AppTest {
         assertEquals("Después del turno de X, el siguiente debe ser O", 'O', juego.obtenerTurnoActual());
     }
 
+    // SOLUCION/TEST PROPUESTA CON IA PARA Si el ultimo turno fue jugado por ‘X',
+    // entonces el siguiente turno es para ‘O’
+    @Test
+    public void testCalcularTurnoPorEstado() {
+        TicTacToe juego = new TicTacToe();
+
+        // Tablero vacío → debe jugar X
+        assertEquals('X', juego.calcularTurnoPorEstado());
+
+        // Colocamos una X
+        juego.insertarEn(0, 0);
+        assertEquals('O', juego.calcularTurnoPorEstado());
+
+        // Colocamos una O
+        juego.insertarEn(1, 1);
+        assertEquals('X', juego.calcularTurnoPorEstado());
+    }
+
 }
