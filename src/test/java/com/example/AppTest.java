@@ -56,6 +56,7 @@ public class AppTest {
     }
 
     // REQUERIMEINTO 2
+    // El primer turno siempre debe ser jugado por ‘X’
     @Test
     public void testPrimerTurnoDebeSerX() {
         TicTacToe juego = new TicTacToe();
