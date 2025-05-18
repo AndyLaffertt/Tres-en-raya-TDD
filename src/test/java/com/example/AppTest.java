@@ -86,6 +86,8 @@ public class AppTest {
 
     // SOLUCION/TEST PROPUESTA CON IA PARA Si el ultimo turno fue jugado por ‘X',
     // entonces el siguiente turno es para ‘O’
+    // LA IA DIO EL TEST TAMBIEN PARA Si el ultimo turno fue jugado por ‘O’,
+    // entonces el siguiente turno es para ‘X’
     @Test
     public void testCalcularTurnoPorEstado() {
         TicTacToe juego = new TicTacToe();
