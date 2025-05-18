@@ -1,6 +1,7 @@
 # .github/workflows/maven-tests.yml
 
 name: Java CI with Maven
+run-name: ${{ github.actor }} is testing :D
 
 on:
   push:
