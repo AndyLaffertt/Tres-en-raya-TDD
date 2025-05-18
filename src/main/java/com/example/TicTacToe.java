@@ -335,5 +335,9 @@ public class TicTacToe {
     public char obtenerTurnoActual() {
         return turno ? J1 : J2;
     }
+    /**
+     * Si el ultimo turno fue jugado por ‘X', entonces el siguiente turno es para
+     * ‘O’
+     */
 
 }

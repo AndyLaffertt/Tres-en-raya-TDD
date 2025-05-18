@@ -63,4 +63,15 @@ public class AppTest {
         assertEquals('X', juego.obtenerTurnoActual());
     }
 
+    /**
+     * Si el ultimo turno fue jugado por ‘X', entonces el siguiente turno es para
+     * ‘O’
+     */
+    @Test
+    public void testTurnoAlternaDeXAO() {
+        TicTacToe juego = new TicTacToe();
+        juego.insertarEn(0, 0); // Jugador X mueve
+        assertEquals("Después del turno de X, el siguiente debe ser O", 'O', juego.obtenerTurnoActual());
+    }
+
 }
