@@ -374,6 +374,6 @@ public class TicTacToe {
     // Si el ultimo turno fue jugado por ‘O’, entonces el siguiente turno es para
     // ‘X’
     public char siguienteTurno() {
-        return 'O'; // stub incorrecto para RED
+        return 'X'; // stub incorrecto para RED
     }
 }
