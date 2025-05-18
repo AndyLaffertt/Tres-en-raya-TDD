@@ -328,6 +328,7 @@ public class TicTacToe {
         return false;
     }
 
+    // El primer turno siempre debe ser jugado por ‘X’
     /** Devuelve el símbolo del jugador cuyo turno es ahora */
     public char obtenerTurnoActual() {
         return turno ? J1 : J2;
@@ -353,6 +354,8 @@ public class TicTacToe {
         return (xCount == oCount) ? J1 : J2;
     }
 
+    // Si el ultimo turno fue jugado por ‘X', entonces el siguiente turno es para
+    // ‘O’
     // SOLUCION PROPUESTA CON IA
     /** Calcula el turno a partir del estado actual del tablero. */
     public char calcularTurnoPorEstado() {
@@ -368,4 +371,9 @@ public class TicTacToe {
         return (x == o) ? J1 : J2;
     }
 
+    // Si el ultimo turno fue jugado por ‘O’, entonces el siguiente turno es para
+    // ‘X’
+    public char siguienteTurno() {
+        return obtenerTurnoActual();
+    }
 }

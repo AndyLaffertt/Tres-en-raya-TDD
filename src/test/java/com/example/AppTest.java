@@ -86,6 +86,8 @@ public class AppTest {
 
     // SOLUCION/TEST PROPUESTA CON IA PARA Si el ultimo turno fue jugado por ‘X',
     // entonces el siguiente turno es para ‘O’
+    // LA IA DIO EL TEST TAMBIEN PARA Si el ultimo turno fue jugado por ‘O’,
+    // entonces el siguiente turno es para ‘X’
     @Test
     public void testCalcularTurnoPorEstado() {
         TicTacToe juego = new TicTacToe();
@@ -102,4 +104,14 @@ public class AppTest {
         assertEquals('X', juego.calcularTurnoPorEstado());
     }
 
+    // Si el ultimo turno fue jugado por ‘O’, entonces el siguiente turno es para
+    // ‘X’
+    @Test
+    public void testTurnoAlternaDeOA_X() {
+        TicTacToe juego = new TicTacToe();
+        juego.insertarEn(0, 0); // Juega X
+        juego.insertarEn(1, 1); // Juega O
+        // se espera 'X'
+        assertEquals("Después del turno de O, debe tocar X", 'X', juego.siguienteTurno());
+    }
 }
