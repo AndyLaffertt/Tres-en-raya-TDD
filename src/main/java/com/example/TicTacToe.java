@@ -41,10 +41,9 @@ public class TicTacToe {
      */
     public boolean finPartida() {
 
-        if tableroLleno()
+        if (tableroLleno()
                 || coincidenciaLinea() != VACIO
-                || coincidenciaColumna() != VACIO
-                {
+                || coincidenciaColumna() != VACIO) {
             return true;
         }
 
@@ -347,7 +346,7 @@ public class TicTacToe {
             return true;
         }
 
-        return false;
-    }
+        return false;
+    }
 
 }
