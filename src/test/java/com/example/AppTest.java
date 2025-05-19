@@ -121,6 +121,8 @@ public class AppTest {
     //requerimiento 3
 
     //se cambio 3 metods de privado a publico
+
+    //mi prueba
 @Test
 public void testNoHayGanadorCuandoNoSeCumpleCondicion() {
     TicTacToe juego = new TicTacToe();
@@ -138,6 +140,21 @@ public void testNoHayGanadorCuandoNoSeCumpleCondicion() {
     assertEquals('-', ganadorColumna);
     assertEquals('-', ganadorDiagonal);
 }
+//test propuesto por ia
+@Test
+public void testNoGanaConLineaIncompletaConHuecos() {
+    TicTacToe juego = new TicTacToe();
+
+    // Jugador X tiene piezas en fila 0 pero con huecos
+    juego.insertarEn(0, 0); // X
+    juego.insertarEn(0, 1); // O
+    juego.insertarEn(0, 2); // X
+
+    // No hay línea completa
+    assertEquals('-', juego.coincidenciaLinea());
+}
+
+//mi prueba
 
 @Test
 public void testGanaJugadorConLineaHorizontal() {
@@ -151,6 +168,26 @@ public void testGanaJugadorConLineaHorizontal() {
 
     assertEquals('X', juego.coincidenciaLinea());
 }
+
+//prueba por ia
+
+@Test
+public void testGanaConMultiplesLineasSimultaneas() {
+    TicTacToe juego = new TicTacToe();
+
+    // Jugador O forma línea completa en fila 2 y columna 2 simultáneamente
+    juego.insertarEn(2, 0); // X
+    juego.insertarEn(2, 2); // O
+    juego.insertarEn(0, 2); // X
+    juego.insertarEn(1, 2); // O
+    juego.insertarEn(0, 1); // X
+    juego.insertarEn(2, 1); // O
+
+    assertEquals('O', juego.coincidenciaLinea());
+    assertEquals('O', juego.coincidenciaColumna());
+}
+
+//mi prueba
 
 @Test
 public void testGanaJugadorConLineaVertical() {
@@ -166,6 +203,23 @@ public void testGanaJugadorConLineaVertical() {
     assertEquals('O', juego.coincidenciaColumna());
 }
 
+//prueba por ia
+@Test
+public void testVictoriaDiagonalIzquierdaDerecha() {
+    TicTacToe juego = new TicTacToe();
+
+    // X ocupa diagonal principal
+    juego.insertarEn(0, 0); // X
+    juego.insertarEn(0, 1); // O
+    juego.insertarEn(1, 1); // X
+    juego.insertarEn(1, 0); // O
+    juego.insertarEn(2, 2); // X
+
+    assertEquals('X', juego.coincidenciaDiagonal());
+}
+
+//mi prueba
+
 @Test
 public void testGanaJugadorConLineaDiagonal() {
     TicTacToe juego = new TicTacToe();
@@ -177,6 +231,20 @@ public void testGanaJugadorConLineaDiagonal() {
     juego.insertarEn(2, 2); 
 
     assertEquals('X', juego.coincidenciaDiagonal());
+}
+
+//prueba por ia
+
+@Test
+public void testLineaInterrumpidaNoGana() {
+    TicTacToe juego = new TicTacToe();
+
+    // Jugador X intenta línea horizontal fila 1, pero O bloquea en medio
+    juego.insertarEn(1, 0); // X
+    juego.insertarEn(1, 1); // O
+    juego.insertarEn(1, 2); // X
+
+    assertEquals('-', juego.coincidenciaLinea());
 }
 
 
