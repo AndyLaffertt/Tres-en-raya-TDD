@@ -121,17 +121,13 @@ public class AppTest {
     //requerimiento 3
 
     //se cambio 3 metods de privado a publico
-
 @Test
 public void testNoHayGanadorCuandoNoSeCumpleCondicion() {
     TicTacToe juego = new TicTacToe();
 
     juego.insertarEn(0, 0); 
-    juego.cambiaTurno();
     juego.insertarEn(1, 1); 
-    juego.cambiaTurno();
     juego.insertarEn(2, 0); 
-    juego.cambiaTurno();
     juego.insertarEn(0, 2);
 
     char ganadorLinea = juego.coincidenciaLinea();
@@ -148,13 +144,9 @@ public void testGanaJugadorConLineaHorizontal() {
     TicTacToe juego = new TicTacToe();
 
     juego.insertarEn(0, 0); 
-    juego.cambiaTurno();
     juego.insertarEn(1, 0); 
-    juego.cambiaTurno();
     juego.insertarEn(0, 1); 
-    juego.cambiaTurno();
     juego.insertarEn(1, 1); 
-    juego.cambiaTurno();
     juego.insertarEn(0, 2); 
 
     assertEquals('X', juego.coincidenciaLinea());
@@ -165,15 +157,10 @@ public void testGanaJugadorConLineaVertical() {
     TicTacToe juego = new TicTacToe();
 
     juego.insertarEn(0, 1); 
-    juego.cambiaTurno();
     juego.insertarEn(0, 0); 
-    juego.cambiaTurno();
     juego.insertarEn(1, 2); 
-    juego.cambiaTurno();
     juego.insertarEn(1, 0); 
-    juego.cambiaTurno();
     juego.insertarEn(2, 2); 
-    juego.cambiaTurno();
     juego.insertarEn(2, 0); 
 
     assertEquals('O', juego.coincidenciaColumna());
@@ -184,17 +171,12 @@ public void testGanaJugadorConLineaDiagonal() {
     TicTacToe juego = new TicTacToe();
 
     juego.insertarEn(0, 0); 
-    juego.cambiaTurno();
     juego.insertarEn(0, 1);
-    juego.cambiaTurno();
     juego.insertarEn(1, 1); 
-    juego.cambiaTurno();
     juego.insertarEn(0, 2); 
-    juego.cambiaTurno();
     juego.insertarEn(2, 2); 
 
     assertEquals('X', juego.coincidenciaDiagonal());
-
 }
 
 
