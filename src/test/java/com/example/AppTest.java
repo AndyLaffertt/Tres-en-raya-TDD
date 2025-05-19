@@ -172,18 +172,17 @@ public void testGanaJugadorConLineaHorizontal() {
 //prueba por ia
 
 @Test
-public void testGanaConMultiplesLineasSimultaneas() {
+public void testGanaJugadorLineaVerticalColumna1() {
     TicTacToe juego = new TicTacToe();
 
-    // Jugador O forma línea completa en fila 2 y columna 2 simultáneamente
-    juego.insertarEn(2, 0); // X
-    juego.insertarEn(2, 2); // O
-    juego.insertarEn(0, 2); // X
-    juego.insertarEn(1, 2); // O
+    // Jugador O ocupa toda la columna 1 (índice 0)
     juego.insertarEn(0, 1); // X
-    juego.insertarEn(2, 1); // O
+    juego.insertarEn(0, 0); // O
+    juego.insertarEn(2, 2); // X
+    juego.insertarEn(1, 0); // O
+    juego.insertarEn(1, 2); // X
+    juego.insertarEn(2, 0); // O
 
-    assertEquals('O', juego.coincidenciaLinea());
     assertEquals('O', juego.coincidenciaColumna());
 }
 
