@@ -5,7 +5,7 @@ import static org.junit.Assert.fail;
 import org.junit.Test;
 
 public class AppTest {
-
+    //Requermiento 1
     @Test
     public void testPiezaFueraDelEjeX_lanzaExcepcion() {
         TicTacToe juego = new TicTacToe();
@@ -23,7 +23,19 @@ public class AppTest {
             System.out.println("Excepción capturada correctamente fila 3");
         }
     }
+    //Solución Alternativa de la IA
+    @Test(expected = IllegalArgumentException.class)
+    public void testFilaNegativa_lanzaExcepcion() {
+        TicTacToe juego = new TicTacToe();
+        juego.insertarEn(-1, 1);
+    }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void testFilaFueraDeLimite_lanzaExcepcion() {
+        TicTacToe juego = new TicTacToe();
+        juego.insertarEn(3, 1);
+    }
+//Segunda prueba
     @Test
     public void testPiezaFueraDelEjeY_lanzaExcepcion() {
         TicTacToe juego = new TicTacToe();
@@ -42,7 +54,19 @@ public class AppTest {
             System.out.println("Excepción capturada correctamente para columna 3");
         }
     }
+    //Solución alternativa
+    @Test(expected = IllegalArgumentException.class)
+    public void testColumnaNegativa_lanzaExcepcion() {
+        TicTacToe juego = new TicTacToe();
+        juego.insertarEn(1, -1);
+    }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void testColumnaFueraDeLimite_lanzaExcepcion() {
+        TicTacToe juego = new TicTacToe();
+        juego.insertarEn(1, 3);
+    }
+//tercera prueba
     @Test
     public void testPiezaEnLugarOcupado_lanzaExcepcion() {
         TicTacToe juego = new TicTacToe();
@@ -55,6 +79,14 @@ public class AppTest {
             System.out.println("Excepción capturada correctamente para posición ocupada");
         }
     }
+    //Solución alternativa con IA
+    @Test(expected = IllegalStateException.class)
+    public void testPosicionOcupada_lanzaExcepcion() {
+        TicTacToe juego = new TicTacToe();
+        juego.insertarEn(0, 0); // Primer jugador
+        juego.insertarEn(0, 0); // Mismo lugar, lanza excepción
+    }
+
 
     // REQUERIMEINTO 2
     // El primer turno siempre debe ser jugado por ‘X’
