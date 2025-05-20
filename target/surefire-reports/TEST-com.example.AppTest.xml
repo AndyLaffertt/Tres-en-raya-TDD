@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.example.AppTest" time="0.139" tests="3" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.example.AppTest" time="0.094" tests="21" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="BO"/>
     <property name="sun.boot.library.path" value="E:\Java\jdk-17.0.12\bin"/>
-    <property name="sun.java.command" value="C:\Users\alaff\AppData\Local\Temp\surefire9001126221968579810\surefirebooter15400027748137294887.jar C:\Users\alaff\AppData\Local\Temp\surefire9001126221968579810 2025-05-17T15-28-22_213-jvmRun1 surefire16648664091707556504tmp surefire_05277468930615857138tmp"/>
+    <property name="sun.java.command" value="C:\Users\alaff\AppData\Local\Temp\surefire17113299331242448165\surefirebooter1775135414766661000.jar C:\Users\alaff\AppData\Local\Temp\surefire17113299331242448165 2025-05-19T09-34-56_034-jvmRun1 surefire16737833915191868186tmp surefire_010342736077157867261tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="E:\docs\gestion de calidad\tresenraya\target\test-classes;E:\docs\gestion de calidad\tresenraya\target\classes;C:\Users\alaff\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\alaff\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\alaff\AppData\Local\Temp\surefire9001126221968579810\surefirebooter15400027748137294887.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\alaff\AppData\Local\Temp\surefire17113299331242448165\surefirebooter1775135414766661000.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.12+8-LTS-286"/>
@@ -56,7 +56,25 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="testPiezaEnLugarOcupado_lanzaExcepcion" classname="com.example.AppTest" time="0.025"/>
-  <testcase name="testPiezaFueraDelEjeY_lanzaExcepcion" classname="com.example.AppTest" time="0.009"/>
-  <testcase name="testPiezaFueraDelEjeX_lanzaExcepcion" classname="com.example.AppTest" time="0.005"/>
+  <testcase name="testFilaFueraDeLimite_lanzaExcepcion" classname="com.example.AppTest" time="0.017"/>
+  <testcase name="testColumnaNegativa_lanzaExcepcion" classname="com.example.AppTest" time="0"/>
+  <testcase name="testColumnaFueraDeLimite_lanzaExcepcion" classname="com.example.AppTest" time="0"/>
+  <testcase name="testGanaJugadorConLineaVertical" classname="com.example.AppTest" time="0"/>
+  <testcase name="testFilaNegativa_lanzaExcepcion" classname="com.example.AppTest" time="0"/>
+  <testcase name="testPrimerTurnoDebeSerX" classname="com.example.AppTest" time="0"/>
+  <testcase name="testGanaJugadorConLineaHorizontal" classname="com.example.AppTest" time="0"/>
+  <testcase name="testNoHayGanadorCuandoNoSeCumpleCondicion" classname="com.example.AppTest" time="0"/>
+  <testcase name="testGanaJugadorConLineaDiagonal" classname="com.example.AppTest" time="0"/>
+  <testcase name="testObtenerTurnoPorConteo_PrimerTurnoX" classname="com.example.AppTest" time="0"/>
+  <testcase name="testVictoriaDiagonalIzquierdaDerecha" classname="com.example.AppTest" time="0"/>
+  <testcase name="testLineaInterrumpidaNoGana" classname="com.example.AppTest" time="0"/>
+  <testcase name="testPiezaEnLugarOcupado_lanzaExcepcion" classname="com.example.AppTest" time="0"/>
+  <testcase name="testTurnoAlternaDeXAO" classname="com.example.AppTest" time="0"/>
+  <testcase name="testPiezaFueraDelEjeY_lanzaExcepcion" classname="com.example.AppTest" time="0"/>
+  <testcase name="testPosicionOcupada_lanzaExcepcion" classname="com.example.AppTest" time="0"/>
+  <testcase name="testCalcularTurnoPorEstado" classname="com.example.AppTest" time="0.001"/>
+  <testcase name="testPiezaFueraDelEjeX_lanzaExcepcion" classname="com.example.AppTest" time="0"/>
+  <testcase name="testGanaJugadorLineaVerticalColumna1" classname="com.example.AppTest" time="0"/>
+  <testcase name="testTurnoAlternaDeOA_X" classname="com.example.AppTest" time="0"/>
+  <testcase name="testNoGanaConLineaIncompletaConHuecos" classname="com.example.AppTest" time="0"/>
 </testsuite>
