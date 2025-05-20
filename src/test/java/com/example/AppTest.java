@@ -1,6 +1,7 @@
 package com.example;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 import org.junit.Test;
 
@@ -13,14 +14,14 @@ public class AppTest {
             juego.insertarEn(-1, 1);
             fail("Se esperaba IllegalArgumentException por fila incorrecta");
         } catch (IllegalArgumentException e) {
-            System.out.println("Excepción capturada correctamente fila -1");
+            assertEquals("Posición fuera del tablero", e.getMessage());
         }
 
         try {
             juego.insertarEn(3, 1);
             fail("Se esperaba IllegalArgumentException");
         } catch (IllegalArgumentException e) {
-            System.out.println("Excepción capturada correctamente fila 3");
+            assertEquals("Posición fuera del tablero", e.getMessage());
         }
     }
     //Solución Alternativa de la IA
@@ -44,14 +45,14 @@ public class AppTest {
             juego.insertarEn(1, -1);
             fail("Se esperaba IllegalArgumentException para columna -1");
         } catch (IllegalArgumentException e) {
-            System.out.println("Excepción capturada correctamente para columna -1");
+            assertEquals("Posición fuera del tablero", e.getMessage());
         }
 
         try {
             juego.insertarEn(1, 3);
             fail("Se esperaba IllegalArgumentException para columna 3");
         } catch (IllegalArgumentException e) {
-            System.out.println("Excepción capturada correctamente para columna 3");
+            assertTrue(e.getMessage().contains("fuera del tablero"));
         }
     }
     //Solución alternativa
@@ -76,7 +77,7 @@ public class AppTest {
             juego.insertarEn(0, 0); // Mismo lugar
             fail("Se esperaba IllegalStateException por posición ocupada");
         } catch (IllegalStateException e) {
-            System.out.println("Excepción capturada correctamente para posición ocupada");
+            assertEquals("La posición ya está ocupada", e.getMessage());
         }
     }
     //Solución alternativa con IA
