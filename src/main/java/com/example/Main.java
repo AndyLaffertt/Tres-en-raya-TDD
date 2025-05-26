@@ -34,7 +34,11 @@ public class Main {
             } while (!correcto);
 
             ttt.insertarEn(fila, columna);
-            ttt.cambiaTurno();
+<<<<<<< HEAD
+            //ttt.cambiaTurno();
+=======
+>>>>>>> 075d084c07f54dde2b707525ab6c42c9a9bab477
+            ttt.siguienteTurno();
         }
 
         ttt.mostrarTablero();

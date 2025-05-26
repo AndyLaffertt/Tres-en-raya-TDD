@@ -15,7 +15,7 @@ public class TicTacToe {
     private char tablero[][];
 
     public TicTacToe() {
-        this.turno = true;
+        this.turno = true; //false para fallo en 1TURNO X
         this.tablero = new char[3][3];
         this.inicializarTablero();
     }
@@ -88,14 +88,14 @@ public class TicTacToe {
 
                 // Si no se mete en el if, devuelvo el simbolo ganador
                 if (coincidencia) {
-                    return simbolo;
+                    return simbolo; //Cmabiar a Vacio o el opuesto Fallo Req 
                 }
 
             }
 
         }
 
-        // Si no hay ganador, devuelvo el simbolo por defecto
+        // Si no hay ganador, devuelvo el simbolo por defecto CAMBIAR A X o O
         return VACIO;
 
     }
@@ -150,13 +150,13 @@ public class TicTacToe {
             for (int i = 1; i < tablero.length; i++) {
                 // sino coincide ya no habra ganadro en esta fila
                 if (simbolo != tablero[i][i]) {
-                    coincidencia = false;
+                    coincidencia = false; 
                 }
             }
 
             // Si no se mete en el if, devuelvo el simbolo ganador
             if (coincidencia) {
-                return simbolo;
+                return simbolo; 
             }
 
         }
@@ -180,7 +180,7 @@ public class TicTacToe {
         }
 
         // Si no hay ganador, devuelvo el simbolo por defecto
-        return VACIO;
+        return VACIO; 
 
     }
 
@@ -300,6 +300,7 @@ public class TicTacToe {
 
     /**
      * Cambia el turno
+     * comentarlo para fallo en alternar de X a O
      */
     public void cambiaTurno() {
         this.turno = !this.turno;
@@ -307,6 +308,8 @@ public class TicTacToe {
 
     /**
      * Validamos la posicion que nos insertan
+     * Para P1 fallo en X: return true
+     * Para P2 fallo en Y: return fila >= 0 && fila < tablero.length;
      */
     public boolean validarPosicion(int fila, int columna) {
 
@@ -319,9 +322,9 @@ public class TicTacToe {
 
     /**
      * Indicamos si en una posicion hay una marca
+     * Lugar P3 Ocupado Fallo: return false
      */
     public boolean hayValorPosicion(int fila, int columna) {
-        
 
         return false;
     }
@@ -349,13 +352,14 @@ public class TicTacToe {
             }
         }
         // Primer turno (vacío): X. Luego alterna según conteo.
-        return (xCount == oCount) ? J1 : J2;
+        return (xCount == oCount) ? J1 : J2; //return 'O' Fallo en ObenerTurnoPorConteo
     }
 
     // Si el ultimo turno fue jugado por ‘X', entonces el siguiente turno es para
     // ‘O’
     // SOLUCION PROPUESTA CON IA
     /** Calcula el turno a partir del estado actual del tablero. */
+    //retunr 'O' Fallo en TurnoPorEstado
     public char calcularTurnoPorEstado() {
         int x = 0, o = 0;
         for (int i = 0; i < tablero.length; i++) {
@@ -366,7 +370,7 @@ public class TicTacToe {
                     o++;
             }
         }
-        return (x == o) ? J1 : J2;
+        return (x == o) ? J1 : J2; //return 'O' 
     }
 
     // Si el ultimo turno fue jugado por ‘O’, entonces el siguiente turno es para
