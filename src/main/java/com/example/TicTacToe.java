@@ -321,9 +321,7 @@ public class TicTacToe {
      * Indicamos si en una posicion hay una marca
      */
     public boolean hayValorPosicion(int fila, int columna) {
-        if (this.tablero[fila][columna] != VACIO) {
-            return true;
-        }
+        
 
         return false;
     }
