@@ -154,7 +154,11 @@ public class TicTacToe {
                 }
             }
 
-            
+            // Si no se mete en el if, devuelvo el simbolo ganador
+            if (coincidencia) {
+                return simbolo;
+            }
+
         }
 
         coincidencia = true;
